@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/bootstrap.css">
+        <style>
+            body{
+                background-color: green;
+            }
+            .sdvfhdsv{
+                width: 420px;
+                height: 420px;
+            }
+            p{
+                font-size: 22px;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <main id="main">
+            <div class="row">
+                <img  class = "sdvfhdsv "src=<%= userData[4] %>  alt="Image" >
+                <div class="col-2"> 
+                    <h3>Movie Title: <%= userData[1] %></h3>
+                    <span >Rating : <%= userData[3] %></span>
+                </div>
+        
+                <div class="col-4">
+                    <p>Director: <%= userData[0] %></p>
+                    <p>Lead Actors: <%= userData[2] %></p>
+                    <p>Country: <%=userData[5] %></p>
+                    <p>IMDB Rating: <%= userData[7]%></p>
+                    <p></p>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
+
+

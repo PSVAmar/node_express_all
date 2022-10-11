@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: rgb(39, 223, 116);
+                font-size: 25px;
+                color: rgb(97, 47, 47);
+            }
+            i{
+                font-size:22px ;
+                color: #d4304d;
+            }
+        </style>
+    </head>
+    <body>
+        
+        The chosen city is <h5><%= userData4[0] %></h5> and its in the country <i><%= userData4[3] %></i> <br> 
+        The Temperature of the <%= userData4[0] %> in centegrade is <%= userData4[1] %>degrees  and it is <b><%= userData4[2] %></b> <br>
+        The Local time in that area is <i> <%= userData4[4] %></i> <br> 
+        
+        minute per hour is <i><%= userData4[6] %></i>  <br> 
+        Wind km per hour is <i><%= userData4[7] %></i> <br>
+        Humidity is <i><%= userData4[8] %></i>  <br>
+        The icon for the<%= userData4[0] %> is <br> <img src="<%= userData4[5] %>" alt="Image" style="align-items: center; width: 120px; height: 120px;"><br> 
+    </body>
+</html>
