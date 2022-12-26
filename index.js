@@ -174,26 +174,47 @@ app.get("/weatherinfosearch",function(req,res){
     var cityname = req.query.cityname;
     var weatherarrray=[];
     request("http://api.weatherapi.com/v1/current.json?key=2011281f54f3438799b90252222505&q="+cityname+"&aqi=nonewsapi.org",function(error,response,body){
-       
-     if(!error){
-        var a1= cityname;
         console.log(JSON.parse(body))
-        console.log(error);
-        var a = JSON.parse(body).current.temp_c;
-        var b = JSON.parse(body).current.condition.text;
-        var c = JSON.parse(body).location.country;
-        var d= JSON.parse(body).location.localtime;
-        var e= JSON.parse(body).current.condition.icon;
-        var f = JSON.parse(body).current.wind_mph;
-        var g = JSON.parse(body).current.wind_kph;
-        var h = JSON.parse(body).current.humidity;
-        weatherarrray.push(a1);weatherarrray.push(a);weatherarrray.push(b);weatherarrray.push(c);weatherarrray.push(d);weatherarrray.push(e);weatherarrray.push(f);weatherarrray.push(g);weatherarrray.push(h);
-        console.log(weatherarrray)
-        res.render("weatherpage",{userData4 : weatherarrray},)
-     }
-     else{
-         res.send("Heiii")
-     }   
+        if(JSON.parse(body).error){
+            if(JSON.parse(body).error.code>0){
+                res.render("Heiii.ejs");
+            }
+        }
+       else{
+        if(JSON.parse(body).current.condition.code>0){
+            var a1= cityname;
+            console.log(JSON.parse(body))
+            var a = JSON.parse(body).current.temp_c;
+            var b = JSON.parse(body).current.condition.text;
+            var c = JSON.parse(body).location.country;
+            var d= JSON.parse(body).location.localtime;
+            var e= JSON.parse(body).current.condition.icon;
+            var f = JSON.parse(body).current.wind_mph;
+            var g = JSON.parse(body).current.wind_kph;
+            var h = JSON.parse(body).current.humidity;
+            weatherarrray.push(a1);weatherarrray.push(a);weatherarrray.push(b);weatherarrray.push(c);weatherarrray.push(d);weatherarrray.push(e);weatherarrray.push(f);weatherarrray.push(g);weatherarrray.push(h);
+            console.log(weatherarrray)
+            res.render("weatherpage",{userData4 : weatherarrray},)
+        }
+       }
+    //  if(JSON.parse(body).current.condition.code){
+    //     var a1= cityname;
+    //     console.log(JSON.parse(body))
+    //     var a = JSON.parse(body).current.temp_c;
+    //     var b = JSON.parse(body).current.condition.text;
+    //     var c = JSON.parse(body).location.country;
+    //     var d= JSON.parse(body).location.localtime;
+    //     var e= JSON.parse(body).current.condition.icon;
+    //     var f = JSON.parse(body).current.wind_mph;
+    //     var g = JSON.parse(body).current.wind_kph;
+    //     var h = JSON.parse(body).current.humidity;
+    //     weatherarrray.push(a1);weatherarrray.push(a);weatherarrray.push(b);weatherarrray.push(c);weatherarrray.push(d);weatherarrray.push(e);weatherarrray.push(f);weatherarrray.push(g);weatherarrray.push(h);
+    //     console.log(weatherarrray)
+    //     res.render("weatherpage",{userData4 : weatherarrray},)
+    //  }
+    //  else if(JSON.parse(body).error.code>0){
+    //      res.render("Heiii")
+    //  }   
     })
 })
 
