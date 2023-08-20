@@ -27,6 +27,7 @@ app.get("/", (req, res) => {
     res.render("first")
  });
 
+
 app.get("/signup", (req, res) => {
     res.render('signup');
  });
@@ -126,7 +127,7 @@ app.get("/carsdetailsubmit",(req,res)=>{
     console.log(carname);
     var date = new Date();
     var datee = date.toISOString().split("T")[0];
-    request({url: "https://newsapi.org/v2/everything?q="+carname+"&from="+datee+"&sortBy=publishedAt&apiKey=dd3e0ad1bf3241e48c067fddb448707c", headers: {
+    request({url: "https://newsapi.org/v2/everything?q="+carname+"&from="+datee+"\""+"&sortBy=publishedAt&apiKey=dd3e0ad1bf3241e48c067fddb448707c", headers: {
     'User-Agent': 'request'
    }}, function (error, response, body) {
        if(JSON.parse(body).totalResults>0){
